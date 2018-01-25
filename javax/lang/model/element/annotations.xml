@@ -1,0 +1,6 @@
+<root>
+    <item name='javax.lang.model.element.Modifier PUBLIC'>
+        <annotation name='android.support.annotation.Nullable'/>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>
