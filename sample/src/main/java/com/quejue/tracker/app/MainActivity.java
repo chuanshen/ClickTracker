@@ -5,10 +5,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
+import com.quejue.clicktracker.ClickTracker;
+import com.quejue.clicktracker.base.TrackerAppCompatActivity;
 import com.quejue.tracker.R;
-import com.quejue.tracker.base.BaseActivity;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends TrackerAppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +19,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.login_qq).setOnClickListener(this);
         findViewById(R.id.register).setOnClickListener(this);
         findViewById(R.id.logout).setOnClickListener(this);
+    }
+
+    @Override
+    protected ClickTracker getClickTracker() {
+        return new MyClickTracker();
     }
 
     private void showFragment() {

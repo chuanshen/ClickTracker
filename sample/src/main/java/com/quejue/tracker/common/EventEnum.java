@@ -1,4 +1,4 @@
-package com.quejue.tracker.utils;
+package com.quejue.tracker.common;
 
 
 import com.quejue.tracker.R;

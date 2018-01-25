@@ -1,1 +1,1 @@
-include ':app', ':tracker-compiler', ':tracker-annotations'
+include ':sample', ':tracker-compiler', ':tracker-annotations', ':clicktracker'

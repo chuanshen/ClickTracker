@@ -1,4 +1,5 @@
-package com.quejue.tracker.utils;
+package com.quejue.clicktracker;
+
 
 import com.quejue.tracker.internal.IBindEvent;
 

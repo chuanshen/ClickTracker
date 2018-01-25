@@ -1,4 +1,4 @@
-package com.quejue.tracker.utils;
+package com.quejue.clicktracker;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Created by chuan.shen on 2018/1/22.
  */
-public class ClickTracker extends View.AccessibilityDelegate {
+public abstract class ClickTracker extends View.AccessibilityDelegate {
     private WeakReference<View> mRootView;
     private ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener;
     private Map<Integer, String> mEventMap;
@@ -80,15 +80,16 @@ public class ClickTracker extends View.AccessibilityDelegate {
     }
 
     @Override
-    public void sendAccessibilityEvent(View host, int eventType) {
-        super.sendAccessibilityEvent(host, eventType);
-        if (AccessibilityEvent.TYPE_VIEW_CLICKED == eventType && host != null) {
-            String eventId = mEventMap.get(host.getId());
+    public void sendAccessibilityEvent(View view, int eventType) {
+        super.sendAccessibilityEvent(view, eventType);
+        if ((view != null) && (AccessibilityEvent.TYPE_VIEW_CLICKED == eventType)) {
+            String eventId = mEventMap.get(view.getId());
             if (TextUtils.isEmpty(eventId)) {
                 return;
             }
-            Log.d("ClickTracker", eventId);
-            // TODO: 编写逻辑代码
+            clickTracker(view, eventId);
         }
     }
+
+    public abstract void clickTracker(View view, String EventId);
 }

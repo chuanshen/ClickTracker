@@ -49,7 +49,6 @@ public class DataProcessor extends AbstractProcessor {
     }
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
-
         if (null != set && set.size() > 0) {
             try {
                 parseDataIds(roundEnvironment.getElementsAnnotatedWith(DataId.class));
